@@ -1,6 +1,5 @@
 import tkinter as tk
 from logic import Timer, Stopwatch, Clock
-import threading
 from playsound import playsound
 timer = Timer()
 stopwatch = Stopwatch()
@@ -98,6 +97,8 @@ stopwatch_label = tk.Label(pages[3], text="00:00", font=("Arial", 40))
 stopwatch_label.pack(pady=20)
 
 def start_stopwatch():
+     if stopwatch.running:
+        return
     stopwatch.stop() 
     stopwatch.seconds = 0 
     stopwatch_label.config(text="00:00")
